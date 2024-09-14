@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class HomeConfig(AppConfig):
+class TodoApiConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "home"
+    name = "todo_api"
