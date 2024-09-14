@@ -2,13 +2,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from rest_framework import permissions
+from rest_framework import status
 
 from .models import ToDo
 from .serializers import ToDoSerializer
 
 
 class ToDoListApiView(APIView):
-    permission_classes = [permissions.isAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     
     def get(self, request, *args, **kwargs):
         todos = ToDo.objects.filter(user = request.user.id)
