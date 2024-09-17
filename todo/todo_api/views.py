@@ -1,3 +1,4 @@
+# imports
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -10,7 +11,8 @@ from .serializers import ToDoSerializer
 
 class ToDoListApiView(APIView):
     permission_classes = [permissions.IsAuthenticated]
-    
+
+
     def get(self, request, *args, **kwargs):
         todos = ToDo.objects.filter(user = request.user.id)
         serializer = ToDoSerializer(todos, many=True)
